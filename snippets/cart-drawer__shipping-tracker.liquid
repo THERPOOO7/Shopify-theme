@@ -1,0 +1,89 @@
+{% assign progress_bar_color = settings.shipping_bar_color %}
+
+<div class="free-shipping-calculetor">
+  {% assign shipping_value = settings.minimum_free_shipping | times: 100 %}
+  {% assign cart_total = cart.total_price %}
+  {% assign shipping_value_left = shipping_value | minus: cart_total %}
+  {% assign shipping_percentage_fraction = cart_total | times: 100 | divided_by: shipping_value %}
+    {% if shipping_value_left > 0 %}
+    <p class="need_more_for_free_shipping">
+      <span class="free_shipping_notice">You are {{ shipping_value_left | money }} away from free shipping!</span>
+    </p>
+    {% elsif  shipping_value_left <= 0 %}
+    <p class="free_shipping_eligible">
+      <span>You have free shipping !</span>
+    </p>
+    {% endif %}
+
+  <div class="progress-bar">
+    <div class="progress-bar-done"><span></span></div>
+  </div>
+
+</div>
+
+<style>
+  .free-shipping-calculetor {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+  }
+
+    .need_more_for_free_shipping{
+    background: #5BB9B9;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: white;
+    border-radius: 10px;
+  }
+  .free_shipping_eligible{
+    background: #3A981A;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .progress-bar{
+    background-color: #E2E4E3;
+    /* display: flex; */
+    height: 1em;
+    width: 100%;
+    border-radius: 0.75em;
+    padding: 3px;
+    position: relative;
+    /* align-items: center; */
+  }
+  
+  .progress-bar-done{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ progress_bar_color }};
+    box-shadow: 0 5px 5px -6px {{ progress_bar_color }};
+    border-radius: 0.75em;
+    height: 100%;
+    transition: 1s ease 0.3s;
+    max-width: 100%;
+    width: {{ shipping_percentage_fraction }}%;
+  }
+  .progress-bar-done span {
+  color: white;  /* Change the color to suit your design */
+}
+.progress-bar-percentage{
+  position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1;
+    padding: 0 6px;
+}
+  /* .progress-bar::before{
+    content: ' ';
+  }
+ */
+
+</style>

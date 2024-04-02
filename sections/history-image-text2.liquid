@@ -1,0 +1,145 @@
+<div class="history-image-text2">
+  <div class="history-text2 ">
+    <h2>
+      {{ section.settings.history_text_caption1 }}
+    </h2>
+    <h3>
+      {{ section.settings.history_Founder1 }}
+    </h3>
+    <h5>
+      {{ section.settings.history_founder_designetion1 }}
+    </h5>
+    <div class="history_text2">
+      {{ section.settings.history_text2 }}
+    </div>
+     <h2>
+      {{ section.settings.history_text_caption2 }}    
+    </h2>
+    <h3>
+      {{ section.settings.history_founder2 }}
+    </h3>
+    <h5>
+      {{ section.settings.history_founder_designetion2 }}
+    </h5>
+  </div>
+
+  <div class="history-image2">
+    <img src="{{ section.settings.history_image1 | img_url: "master" }}"/>
+    <img src="{{ section.settings.history_image2 | img_url: "master" }}"/>
+   
+
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "History image with text 2",
+    "settings": [
+      {
+        "type": "text",
+        "id": "history_text_caption1",
+        "label":"Caption 1"
+      },
+      {
+        "type": "text",
+        "id": "history_Founder1",
+        "label":"Founder Name"
+      },
+      {
+        "type": "text",
+        "id": "history_founder_designetion1",
+        "label":"Founder Designetion"
+      },
+      {
+        "type": "richtext",
+        "id": "history_text2",
+        "label":"History 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "history_image1",
+        "label": "History Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "history_image2",
+        "label": "History Image 2"
+      },
+      {
+        "type": "text",
+        "id": "history_text_caption2",
+        "label":"History caption"
+      },
+      {
+        "type": "text",
+        "id": "history_founder2",
+        "label":"Founder Name"
+      },
+      {
+        "type": "text",
+        "id": "history_founder_designetion2",
+        "label":"Founder designetion"
+      }
+    ],
+    "presets": [
+    {
+      "name": "History text and image 2",
+      "category": "Custom"      
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+
+  .history-image-text2{
+    display: flex;
+    margin-top: 4rem;
+    /* padding: 0 2rem; */
+    padding: 0 6rem;
+  }  
+  .history-text2{
+    font-size: 20px;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 6rem 3rem 0;
+  }
+  .history-image2{
+    max-width: 100%;
+    width: 100%;
+  }
+  .history-text2 h2{
+    font-weight: 600;
+    color: #D6652D;
+  }
+  .history-text2 h3{
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .history-text2 h5{
+    margin: 0 0 6px;
+  }
+  .history-image2 h2{
+    font-weight: 600;
+    color: #D6652D;
+  }
+  .history-image2 h3{
+    font-weight: 600;
+  }
+
+    @media screen and (max-width: 768px){
+    .history-image-text2{
+      padding: 0 2rem;
+    } 
+    .history-text2 {
+      font-size: 18px;
+      padding: 0 0 3rem ;
+
+    }
+  }
+  
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

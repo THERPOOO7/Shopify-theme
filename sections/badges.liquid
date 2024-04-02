@@ -1,0 +1,132 @@
+<div class="badges-main-section">
+  <div class="custom-block">
+    <div class="badges-img">
+      <img src="{{ section.settings.image1 | img_url }}" alt="{{ section.settings.titel1 }}" class="custom-block-image">
+    </div>
+    <div class="badges-text">
+      <h2 class="custom-block-title">{{ section.settings.title1 }}</h2>
+      <p class="custom-block-description">{{ section.settings.description1 }}</p>
+    </div>
+  </div>
+  <div class="custom-block">
+    <div class="badges-img">
+      <img src="{{ section.settings.image2 | img_url }}" alt="{{ section.settings.titel2 }}" class="custom-block-image">
+    </div>
+    <div class="badges-text">
+      <h2 class="custom-block-title">{{ section.settings.title2 }}</h2>
+      <p class="custom-block-description">{{ section.settings.description2 }}</p>
+    </div>
+  </div>
+  <div class="custom-block">
+    <div class="badges-img">
+      <img src="{{ section.settings.image3 | img_url }}" alt="{{ section.settings.titel3 }}" class="custom-block-image">
+    </div>
+    <div class="badges-text">
+      <h2 class="custom-block-title">{{ section.settings.title3 }}</h2>
+      <p class="custom-block-description">{{ section.settings.description3 }}</p>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Badges",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image1"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "Title1",
+      "default": "Sample Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description1",
+      "label": "Description1",
+      "default": "This is a sample description."
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image2"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Title2",
+      "default": "Sample Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description2",
+      "label": "Description2",
+      "default": "This is a sample description."
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "Image3"
+    },
+    {
+      "type": "text",
+      "id": "title3",
+      "label": "Title3",
+      "default": "Sample Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description3",
+      "label": "Description3",
+      "default": "This is a sample description."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Badges",
+      "category": "Custom"
+       
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+
+.badges-main-section{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 80px 40px;
+}
+  .badges-main-section .custom-block .badges-img{
+    display: flex;
+    justify-content: center;
+  }
+  .badges-main-section .custom-block .badges-text{
+    text-align: center;
+  }
+
+    .badges-main-section .custom-block .badges-text .custom-block-description{
+      margin-top: 0;
+    }
+    .badges-main-section .custom-block .badges-text .custom-block-title{
+      margin-bottom: 0;
+    }
+  
+@media screen and (max-width: 568px) {
+  .badges-main-section{
+    display: grid;
+    margin: 80px 0;
+    gap: 6rem;
+  }
+}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

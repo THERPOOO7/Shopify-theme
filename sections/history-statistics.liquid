@@ -1,0 +1,139 @@
+<div class="history-statistics-section">
+  <div class="history-statistics-row1">
+    <div class="history-statistics-blocks">
+      <h2>{{ section.settings.history_statistics_heading1 }}</h2>
+      <p>{{ section.settings.history_statistics_description1 }}</p>
+    </div>
+    <div class="history-statistics-blocks">
+      <h2>{{ section.settings.history_statistics_heading2 }}</h2>
+      <p>{{ section.settings.history_statistics_description2 }}</p>
+    </div>
+  </div>
+    <div class="history-statistics-row1">
+      <div class="history-statistics-blocks">
+        <h2>{{ section.settings.history_statistics_heading3 }}</h2>
+        <p>{{ section.settings.history_statistics_description3 }}</p>
+      </div>
+      <div class="history-statistics-blocks">
+        <h2>{{ section.settings.history_statistics_heading4 }}</h2>
+        <p>{{ section.settings.history_statistics_description4 }}</p>
+      </div>
+     </div>
+</div>
+
+{% schema %}
+  {
+    "name": "History statistics",
+    "settings": [
+      {
+        "type": "text",
+        "id": "history_statistics_heading1",
+        "label":"Text 1",
+        "default": "123456789"
+      },
+      {
+        "type": "richtext",
+        "id": "history_statistics_description1",
+        "label":"description 1",
+        "default": "<p>Description about the company statistics</p>"
+      },
+      {
+        "type": "text",
+        "id": "history_statistics_heading2",
+        "label":"Text 2",
+        "default": "123456789"
+      },
+      {
+        "type": "richtext",
+        "id": "history_statistics_description2",
+        "label":"description 2",
+        "default": "<p>Description about the company statistics</p>"
+      },
+      {
+        "type": "text",
+        "id": "history_statistics_heading3",
+        "label":"Text 3",
+        "default": "123456789"
+      },
+      {
+        "type": "richtext",
+        "id": "history_statistics_description3",
+        "label":"description 3",
+        "default": "<p>Description about the company statistics</p>"
+      },
+      {
+        "type": "text",
+        "id": "history_statistics_heading4",
+        "label":"Text 4",
+        "default": "123456789"
+      },
+      {
+        "type": "richtext",
+        "id": "history_statistics_description4",
+        "label":"description 4",
+        "default": "<p>Description about the company statistics</p>"
+      }
+    ],
+    "presets": [
+    {
+      "name": "History Statistics",
+      "category": "Custom"      
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  .history-statistics-section {
+    display: flex;
+    text-align: center;
+    padding-top: 4rem;
+  }
+  .history-image img{
+    width: 100%;
+  }
+  .history-image2 img {
+    width: 100%;
+  }
+  .history-statistics-row1 {
+   width: 100%;
+  }
+  .history-statistics-blocks h2{
+    margin: 0;
+  }
+  .history-statistics-blocks p{
+    margin: 0;
+  }
+  .history-statistics-blocks{
+    padding-bottom: 4rem; 
+  }
+  .history-statistics-row1 .history-statistics-blocks h2{
+    color: rgb(214,101,45);
+    font-weight: 600;
+  }
+  @media screen and (max-width: 768px){
+    .history-statistics-section{
+      display: block;
+      padding: 3rem 2rem 0;
+      text-align: start;
+    }
+    .history-image-text1 {
+    display: block;
+    }
+    .history-image{
+      text-align: center;
+    }
+    .history-image-text2{
+      display: block; 
+    }
+    .history-image2{
+      text-align: center;
+    }
+    .history-statistics-blocks {
+      padding-bottom: 3rem; 
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

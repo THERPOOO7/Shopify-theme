@@ -1,0 +1,186 @@
+<section class="need-help-section">
+  <div class="help-heading">
+    <img src="{{ section.settings.need-help-img | img_url: '500x500' }}" alt="Image" />
+    <h2>{{ section.settings.need-help-text }}</h2>
+  </div>
+  <div class="need-help-resource">
+    <div class="help-cards">
+      <img src="{{ section.settings.need-help-call-img | img_url: '500x500' }}" alt="Image" />
+      <h2>{{ section.settings.need-help-call-cantect }}</h2>
+    </div>
+    <div class="help-cards">
+      <img src="{{ section.settings.need-help-service-img | img_url: '500x500' }}" alt="Image" />
+      <h2>{{ section.settings.need-help-service-name }}</h2>
+    </div>
+  </div>
+</section>
+
+
+
+{% comment %} 
+<div class="need-help-section">
+  <div class="help-heading">
+      <img src="{{ section.settings.need-help-img | img_url: 'medium' }}"/>
+      <h2>{{ section.settings.need-help-text }}</h2>
+  </div>
+  <div class="help-cards">
+      <img src="{{ section.settings.need-help-call-img | img_url: 'large' }}"/>
+      <h2>{{ section.settings.need-help-call-cantect}}</h2>
+  </div>
+  <div class="help-cards">
+      <img src="{{ section.settings.need-help-service-img | img_url: 'large' }}"/>
+      <h2>{{ section.settings.need-help-service-name }}</h2>
+  </div>
+</div> {% endcomment %}
+
+<!-- <style>
+  .need-help-section{
+    padding: 5rem 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: cente
+  }
+  .help-cards{
+    display: flex;
+    align-items: center;
+    padding: 1rem 6rem;
+    box-shadow: 0px 0px 20px 0px #e7dcdc;
+    border-radius: 10px;
+  }
+  .help-cards img{
+    object-fit: none;
+  }
+  .help-card-icon{
+    align-items: center;
+    display: flex;
+    margin-right: 28px;
+  }
+</style> -->
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "logo",
+        "id": "need-help-img",
+        "info": "dfv"
+      },
+      {
+        "type": "text",
+        "label": "text",
+        "id": "need-help-text",
+        "default" : "Need help ?"
+      },
+      {
+        "type": "image_picker",
+        "label": "contect logo",
+        "id": "need-help-call-img",
+        "info": "dfv"
+      },
+      {
+        "type": "text",
+        "label": "contect info",
+        "id": "need-help-call-cantect",
+        "default" : "1111111111"
+      },
+      {
+        "type": "image_picker",
+        "label": "service logo",
+        "id": "need-help-service-img",
+        "info": "dfv"
+      },
+      {
+        "type": "text",
+        "label": "sevice name",
+        "id": "need-help-service-name",
+        "default" : "Customer service ?"
+      }
+    ],
+     "presets": [
+    {
+      "name": "Need help",
+      "category": "Custom"      
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .need-help-section{
+    display: flex;
+    padding: 8rem 10rem 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+  }
+ .need-help-section .help-cards{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 3rem 2rem;
+  box-shadow: 1px 1px 25px #9b9999;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+   margin-right: 20px
+  }
+  .need-help-resource{
+    display: flex;
+    width: 75%;
+  }
+  .need-help-section .help-cards img {
+  max-width: 100%;
+}
+ .need-help-section .help-heading h2{
+    font-weight: 600;
+    color: #D6672A;
+    font-size: 25px;
+    line-height: 5px;
+  }
+ .need-help-section .help-cards img{
+    width: 13%;
+    margin: 0 1rem;
+  }
+ .need-help-section .help-cards h2{
+    font-weight: 600;
+    margin: 0px 15px;
+    font-size: 20px;
+  }
+  @media only screen and (min-width: 769px) and (max-width: 1024px){
+  .need-help-section{
+    display: flex;
+    padding: 5rem 3rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+  @media (max-width: 768px) {
+  .need-help-section {
+    flex-direction: column; 
+    padding: 4rem 3rem;
+    gap: 3rem;
+  }
+  .need-help-resource{
+    width: 100%;
+  }
+  .need-help-section .help-cards {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .need-help-section .help-cards img{
+    margin: 0;  
+  }
+}
+  
+  @media (max-width: 580px) {
+    .need-help-resource{
+      display: grid;
+      gap: 1rem;
+    }
+  }
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

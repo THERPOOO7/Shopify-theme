@@ -1,0 +1,299 @@
+<section class="customer-reviews-section">
+<div class="background-image" style="background-color: {{ section.settings.background_color }};">
+  {% if section.settings.reviews_bg %}
+    <img src="{{ section.settings.reviews_bg | img_url: 'large' }}" alt="{{ section.settings.reviews_bg }}" />
+  {% endif %}
+</div>
+  <div class="">
+    <div class="review-header">
+      <h2>{{ section.settings.reviews_heading }}</h2>
+      <p>{{ section.settings.reviews_text }}</p>
+    </div>
+     
+    <div class="review-cards-slider">
+      {% for block in section.blocks %}
+      <div class="review-card  ">
+        <img src="{{ block.settings.review_image | img_url: 'medium' }}" alt="{{ block.settings.review_heading }}" class="review-img">
+        <div class="stars-rating">
+          <img src="{{ block.settings.star_rating | img_url: 'medium' }}" alt="{{ block.settings.review_heading }}">
+        </div>
+        <h3>{{ block.settings.review_heading }}</h3>
+        <p>{{ block.settings.review_text }}</p>
+        <p>{{ block.settings.additional_paragraph }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="slider-arrows">
+      <button class="slider-prev"><i class="fa-solid fa-arrow-left-long"></i></button>
+      <button class="slider-next"><i class="fa-solid fa-arrow-right-long"></i></button>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+  "name": "Customer Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Reviews Heading",
+      "id": "reviews_heading",
+      "default": "Customer Reviews"
+    },
+    {
+      "type": "textarea",
+      "label": "Reviews Text",
+      "id": "reviews_text",
+      "default": "Read what our customers have to say about us."
+    },
+    {
+      "type": "image_picker",
+      "label": "Reviews background image",
+      "id": "reviews_bg",
+      "info": "Leave this blank to use background color instead."
+    },
+    {
+      "type": "color",
+      "label": "Background Color",
+      "id": "background_color",
+      "default": "#DA723B"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review-card",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Review Image",
+          "id": "review_image"
+        },
+        {
+         "type": "image_picker",
+          "label": "Star Rating",
+          "id": "star_rating"
+        },
+        {
+          "type": "text",
+          "label": "Review Heading",
+          "id": "review_heading",
+          "default": "Great Details!"
+        },
+        {
+          "type": "text",
+          "label": "Review Text",
+          "id": "review_text",
+          "default": "HEMA HX-2"
+        },
+        {
+          "type": "textarea",
+          "label": "Additional Paragraph",
+          "id": "additional_paragraph",
+          "default": "I'm vary happywith this edition of the maps. Vary good detail."
+        }
+      ]
+    }
+  ],
+     "presets": [
+    {
+      "name": "review-cards",
+      "category": "Custom"      
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+
+.customer-reviews-section {
+  position: relative; /* Add position relative to the section */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 8rem;
+  padding: 5rem 9rem;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image img {
+  object-fit: cover; /* Make the image cover the entire container */
+  width: 100%;
+  height: 100%;
+  display: block; /* Remove any extra space below the image */
+}
+
+/* .customer-reviews-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://cdn.shopify.com/s/files/1/0503/2443/9189/files/footer_666ca119-91dc-4ed5-9048-da1a19aa531f.png?v=1696501251');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+
+.customer-reviews-section h2 {
+  width: 100%;
+  font-size: 35px; 
+  margin-bottom: 5px;
+  color: white;
+  font-weight: 700;
+}
+
+.customer-reviews-section p {
+    width: 100%;
+    color: white;
+    font-size: 17px;
+    margin-bottom: 6rem;
+}
+
+.review-cards-slider {
+  padding: 0rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.review-card {
+    width: calc(25% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    /* box-shadow: 7px 15px 45px; */
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 20px;
+    height: 100%;
+    width: 22%;
+}
+  /* .review-card:hover{
+    transform: scale(1.1);
+    transition: transform 0.6s;
+  } */
+
+.review-card img {
+ height: 70%;
+    width: 55%;
+  }
+
+.customer-reviews-section .review-header {
+  position: relative;
+}
+
+.stars-rating {
+ width: 65%;
+    margin-top: 10px;
+}
+
+.review-card h3 {
+     font-size: 18px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+  .review-img{
+    max-height: 14rem;
+  }
+.review-card p {
+ font-size: 13px;
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: 600;
+}
+  .slider-arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+}
+
+.slider-prev,
+.slider-next {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem 3rem;
+}
+
+  @media (max-width: 1200px) {
+  /* .customer-reviews-section {
+    padding: 4rem 6rem;
+  } */
+
+  .review-card {
+    width: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 992px) {
+  .customer-reviews-section {
+    padding: 3rem 4rem;
+  }
+
+  .review-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-reviews-section {
+    padding: 2rem 3rem;
+  }
+
+  .review-card {
+    width: 100%;
+    margin-right: 16px;
+  }
+   .review-img{
+    max-height: 12rem;
+  }
+}
+{% endstylesheet %}
+
+<script>
+  $(document).ready(function(){
+    $('.review-cards-slider').slick({
+      slidesToShow: 4, 
+      slidesToScroll: 1, 
+      // centerMode: true,
+      prevArrow: $('.slider-prev'), 
+      nextArrow: $('.slider-next'), 
+       responsive: [
+      {
+        breakpoint: 1024, 
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 768, 
+        settings: {
+          slidesToShow: 2.5,
+        }
+      },
+      {
+        breakpoint: 576, 
+        settings: {
+          slidesToShow: 1.5, 
+        }
+      }
+      
+    ]
+    });
+  });
+</script>

@@ -1,0 +1,75 @@
+  <div class="history-galery-section">
+    <div class="history-galery-image">
+      <img src="{{ section.settings.history_gallery_image1 | img_url: 'large' }}" alt="Image"/>
+    </div>
+    <div class="history-galery-image">
+      <img src="{{ section.settings.history_gallery_image2 | img_url: 'large' }}" alt="Image"/>
+    </div>
+    <div class="history-galery-image">
+      <img src="{{ section.settings.history_gallery_image3 | img_url: 'large' }}" alt="Image"/>
+    </div>
+  </div>
+
+{% schema %}
+  {
+    "name": "history galery",
+    "settings": [
+       {
+        "type": "image_picker",
+        "label": "history galery image",
+        "id": "history_gallery_image1",
+        "info": "Leave this blank to use background color instead."
+      },
+       {
+        "type": "image_picker",
+        "label": "history galery image",
+        "id": "history_gallery_image2",
+        "info": "Leave this blank to use background color instead."
+      },
+       {
+        "type": "image_picker",
+        "label": "history galery image",
+        "id": "history_gallery_image3",
+        "info": "Leave this blank to use background color instead."
+      }
+    ],
+     "presets": [
+    {
+      "name": "history galery",
+      "category": "Custom"      
+    }
+  ]
+  }
+{% endschema %}
+<style>
+  
+.history-galery-section{
+  display: flex;
+  margin-top: 3rem;
+}
+ .history-galery-section .history-galery-image {
+    flex: 1 0 25%;
+    margin-right: 6px;
+  }
+ .history-galery-section .history-galery-image img{
+    width: 100%;
+    max-width: 100%;
+   height: 30vh;
+  }
+
+  @media (max-width: 570px){
+    .history-galery-section{
+      display: block;
+      margin-top: 1rem;
+      padding: 0 2rem;
+  }
+  .history-galery-section .history-galery-image {
+    margin-right: 0;
+  }
+   .history-galery-section .history-galery-image img{
+    height:20vh;
+  }
+  }
+</style>
+{% javascript %}
+{% endjavascript %}

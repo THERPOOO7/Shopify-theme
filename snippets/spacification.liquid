@@ -1,0 +1,260 @@
+{{ 'custom.css' | asset_url | stylesheet_tag }}
+
+{% if product.metafields.custom.header_hardware != blank %}
+<div class='spacification'>
+  <h1>{{ product.metafields.custom.header_hardware }}</h1>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.dimensions_heading != blank and product.metafields.custom.dimensions_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.dimensions_heading }}</h1>
+  <p>{{ product.metafields.custom.dimensions_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.display_heading != blank and product.metafields.custom.dispaly_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.display_heading }}</h1>
+  <p>{{ product.metafields.custom.dispaly_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.resolution_heading != blank and product.metafields.custom.resolution_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.resolution_heading }}</h1>
+  <p>{{ product.metafields.custom.resolution_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.screen_heading != blank and product.metafields.custom.screen_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.screen_heading }}</h1>
+  <p>{{ product.metafields.custom.screen_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.bettery_heading != blank and product.metafields.custom.battery_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.bettery_heading }}</h1>
+  <p>{{ product.metafields.custom.battery_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.connection_heading != blank and product.metafields.custom.connection_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.connection_heading }}</h1>
+  <p>{{ product.metafields.custom.connection_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.external_audio_heading != blank and product.metafields.custom.external_audio_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.external_audio_heading }}</h1>
+  <p>{{ product.metafields.custom.external_audio_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.button_heading != blank and product.metafields.custom.button_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.button_heading }}</h1>
+  <p>{{ product.metafields.custom.button_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.camera_heading != blank and product.metafields.custom.camera_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.camera_heading }}</h1>
+  <p>{{ product.metafields.custom.camera_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.processor_heading != blank and product.metafields.custom.processoer_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.processor_heading }}</h1>
+  <p>{{ product.metafields.custom.processoer_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.opreting_system_heading != blank and product.metafields.custom.opreting_system_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.opreting_system_heading }}</h1>
+  <p>{{ product.metafields.custom.opreting_system_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.warranty_heading != blank %}
+<div class='spacification-software'>
+  <h1>{{ product.metafields.custom.warranty_heading }}</h1>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.software_heading != blank %}
+<div class='spacification-software'>
+  <h1>{{ product.metafields.custom.software_heading }}</h1>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.internal_memory_heading != blank and product.metafields.custom.internal_memory_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.internal_memory_heading }}</h1>
+  <p>{{ product.metafields.custom.internal_memory_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.ram_heading != blank and product.metafields.custom.ram_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.ram_heading }}</h1>
+  <p>{{ product.metafields.custom.ram_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.expandable_heading != blank and product.metafields.custom.expandables_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.expandable_heading }}</h1>
+  <p>{{ product.metafields.custom.expandables_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.connections_heading != blank %}
+<div class='spacification-software'>
+  <h1>{{ product.metafields.custom.connections_heading }}</h1>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.usb_heading != blank and product.metafields.custom.usb_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.usb_heading }}</h1>
+  <p>{{ product.metafields.custom.usb_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.blutooth_heading != blank and product.metafields.custom.blutooth_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.blutooth_heading }}</h1>
+  <p>{{ product.metafields.custom.blutooth_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.wireless_heading != blank and product.metafields.custom.wireless_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.wireless_heading }}</h1>
+  <p>{{ product.metafields.custom.wireless_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.gps_heading != blank and product.metafields.custom.gps_details != blank %}
+<div class="spacification-section">
+  <h1>{{ product.metafields.custom.gps_heading }}</h1>
+  <p>{{ product.metafields.custom.gps_details }}</p>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.package_details != blank %}
+<div class='spacification-software'>
+  <h1>{{ product.metafields.custom.package_details }}</h1>
+  <ul>
+    {% if product.metafields.custom.package_details_1 != blank %}
+    <li>{{ product.metafields.custom.package_details_1 }}</li>
+    {% endif %}
+    {% if product.metafields.custom.package_details_2 != blank %}
+    <li>{{ product.metafields.custom.package_details_2 }}</li>
+    {% endif %}
+    {% if product.metafields.custom.package_details_3 != blank %}
+    <li>{{ product.metafields.custom.package_details_3 }}</li>
+    {% endif %}
+    {% if product.metafields.custom.package_details_4 != blank %}
+    <li>{{ product.metafields.custom.package_details_4 }}</li>
+    {% endif %}
+    {% if product.metafields.custom.package_details_5 != blank %}
+    <li>{{ product.metafields.custom.package_details_5 }}</li>
+    {% endif %}
+    {% if product.metafields.custom.package_details_6 != blank %}
+    <li>{{ product.metafields.custom.package_details_6 }}</li>
+    {% endif %}
+  </ul>
+</div>
+{% endif %}
+
+{% if product.metafields.custom.note_heading != blank %}
+<div class='spacification-software'>
+  <h1>{{ product.metafields.custom.note_heading }}</h1>
+  <p>{{ product.metafields.custom.note_details }}</p>
+  <a href="{{ product.metafields.custom.meta_link1 }}" target="_blank">
+    {{ product.metafields.custom.meta_link }}
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+  </a>
+</div>
+{% endif %}
+
+<!-- {% if product.metafields.custom.related_video_heading != blank %} -->
+<div class='spacification-software'>
+  <h1>{{ product.metafields.custom.related_video_heading }}</h1>
+  {% if product.metafields.custom.video_link1 != blank %}
+  <a href="{{ product.metafields.custom.video_link1 }}" target="_blank">
+    {{ product.metafields.custom.video_link_1 }}
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+  </a><br>
+  {% endif %}
+  {% if product.metafields.custom.video_link2 != blank %}
+  <a href="{{ product.metafields.custom.video_link2 }}" target="_blank">
+    {{ product.metafields.custom.video_link_2 }}
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+  </a>
+  {% endif %}
+</div>
+
+<!-- {% if product.metafields.custom.retailer != blank %} -->
+<!-- <div>
+  <h1>{{ rudra_metaobject.hema.rp_heading }}</h1>
+  <p>{{ rudra_metaobject.hema.rp_text }}</p>
+  <img src= {{ product.metafields.rudra_metaobject.rp_image| img_url : 'master' }} />
+</div> -->
+<!-- {% endif %} -->
+  
+<!-- {% endif %} -->
+
+
+
+
+
+<style>
+  .spacification{
+    margin-top: 3rem;
+  }
+  .spacification-section{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+   border-bottom: 1px solid #e3dfdf;
+}
+.spacification-section h1{
+  font-size: 15px;
+  font-weight: 600;
+}
+.spacification h1{
+  margin: 0px; 
+  font-size: 18px;
+  font-weight: 600;
+  color: #817d7d;
+}
+.spacification-section p{
+      margin-right: 3rem;
+}
+.spacification-software h1{
+  font-size: 18px;
+  font-weight: 600;
+  color: #817d7d;
+  /* margin-top:10px; *
+}
+.spacification-software p{
+     font-size: 15px;    
+}
+.spacification-software a{
+    color: #DC814F;
+    text-decoration: underline;
+}
+.spacification-software a:hover{
+    color: #DC814F;
+}
+</style>

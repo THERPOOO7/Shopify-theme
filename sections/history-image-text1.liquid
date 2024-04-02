@@ -1,0 +1,70 @@
+<div class="history-image-text1">
+  <div class="history-text ">
+    {{ section.settings.history_text1 }}
+  </div>
+  <div class="history-image">
+    <img src="{{ section.settings.history_image1 | img_url: "master" }}"/>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "History image with text 1",
+    "settings": [
+      {
+        "type": "text",
+        "id": "history_text1",
+        "label":"History 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "history_image1",
+      "label": "History Image"
+      }
+    ],
+    "presets": [
+    {
+      "name": "History text and image",
+      "category": "Custom"      
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+  .history-image-text1{
+    display: flex;
+    margin-top: 4rem;
+    padding: 0 6rem;
+  }  
+  
+  .history-text {
+    padding: 0 6rem 0 0;
+    font-size: 20px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .history-image{
+    max-width: 100%;
+    width: 100%;
+  }
+  
+@media screen and (max-width: 768px){
+  .history-text{
+    padding: 0 2rem;
+    font-size: 18px;
+  }
+  .history-image{
+    padding: 3rem 2rem ;
+  }
+    .history-image-text1{
+     padding: 0;
+  } 
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

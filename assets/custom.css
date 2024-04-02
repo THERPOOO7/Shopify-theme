@@ -1,0 +1,125 @@
+.announcement-bar p {
+  color: white;
+}
+
+.footer-block .footer-block__newsletter h2{
+  text-align: start;
+} 
+
+.banner__content .banner__box .banner__buttons a {
+  background-color: #D6652B;
+  border-radius: 30px;
+}
+
+.home-collection .card-wrapper .card__information{
+    background: #D6652B;
+    border-radius: 30px;
+    text-align: center;
+    width: 85%;
+}
+
+.home-collection .card-wrapper .card__content{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 2.5rem;
+}
+
+.home-collection .card-wrapper .card__inner{
+  position: relative;
+}
+
+.home-collection .card-wrapper .card__information .full-unstyled-link{
+    color: white;
+}
+
+.collection-list-wrapper ul li{
+  margin-right: 16px ;
+}
+
+.home-collection .card-wrapper .card__inner {
+  border-radius: 20px !important;
+}
+ .card .card__inner .card__media{
+  border-radius: 20px !important;
+}
+
+.banner__content .banner__box{
+  background: transparent;
+}
+
+.related-products .card-wrapper .card__inner {
+  background: white;
+}
+
+.related-products .card-information{
+  text-align: center;
+}
+
+.related-products .card__information h3 {
+    text-align: center;
+    font-size: 22px;
+}
+.related-products .card__information .price__container {
+      color: #D6672A;
+}
+.related-products .grid__item {
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+}
+
+.product .product-form__buttons button {
+  background: #D6652B;
+  border-radius: 30px;
+} 
+
+.related-products .grid__item .card-wrapper {
+  padding: 3rem 4rem;
+}
+
+  @media screen and (min-width: 990px){
+  .about-us .image-with-text__content {
+    padding: 0 0 0 0;
+   }
+  }
+  .about-us .image-with-text__content{
+    padding: 0;
+  }
+  .about-us .image-with-text__text-item{
+    padding: 0 5rem 0 0;
+  }
+
+@media screen and (max-width: 749px)
+.footer-block--newsletter {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    align-items: start;
+    gap: 3rem;
+}
+.about-us .image-with-text__text-item{
+    padding: 0;
+  }
+@media screen and (max-width: 749px)
+.footer-block-image, .footer-block-image.left, .footer-block-image.center, .footer-block-image.right {
+    justify-content: start;
+}
+
+@media screen and (min-width: 750px){
+  .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in {
+    display: flex;
+    justify-content: end;
+    align-items: baseline;
+  }
+}
+
+/* @media screen and (max-width: 750px) {
+  .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in{
+      display: flex;
+      justify-content: center;  
+      align-items: baseline;
+  }
+}
+ */
+
+

@@ -1,0 +1,74 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<link href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" rel="stylesheet"/>
+<link href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" rel="stylesheet"/>
+
+
+<section class='pdp-image-text-section-mobile'>
+  <div class='pdp-image-text slider'>
+    <div class='pdp-image-text1'>
+      <img src="{{  section.settings.pdp_description_image | img_url: 'medium' }}" alt="{{ section.settings.pdp_description_heading }}" class="pdp-img"/>
+      <div class='pdp-text'>
+        <h3>{{ section.settings.pdp_description_heading }}</h3>
+        <p>{{ section.settings.additional_pdp_description_paragraph }}</p>
+      </div>
+    </div>
+    <div class='pdp-image-text1'>
+      <img src="{{  section.settings.pdp_description_image2 | img_url: 'medium' }}" alt="{{ section.settings.pdp_description_heading2 }}" class="pdp-img"/>
+      <div class='pdp-text'>
+        <h3>{{ section.settings.pdp_description_heading2 }}</h3>
+        <p>{{ section.settings.additional_pdp_description_paragraph2 }}</p>
+      </div>
+    </div>
+    <div class='pdp-image-text1'>
+      <img src="{{  section.settings.pdp_description_image3 | img_url: 'medium' }}" alt="{{ section.settings.pdp_description_heading3 }}" class="pdp-img"/>
+      <div class='pdp-text'>
+        <h3>{{ section.settings.pdp_description_heading3 }}</h3>
+        <p>{{ section.settings.additional_pdp_description_paragraph3 }}</p>
+      </div>
+    </div>
+  </div>
+</section>  
+
+<style>
+.pdp-image-text-section-mobile{
+      display: none;
+    }
+  @media screen and (max-width: 768px){
+    .pdp-image-text-section-mobile{
+      display: block;
+    }
+    .pdp-image-text1 img{
+        border-radius: 18px 18px 0 0;
+    }
+   /* .pdp-image-text1{
+      margin: 32px 6px;
+      width: 250px !important;
+    } */
+    .pdp-text {
+    padding: 0 20px;
+    }
+    /* .pdp-image-text1 .slick-slide .slick-current .slick-active .slick-center{
+      width: 250px;
+    } */
+  }
+ </style>
+
+
+<script>
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+$(document).ready(function () {
+  if (isMobile()) {
+      $('.slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        centerMode: true,
+        arrows: false,
+      });
+    }
+  });
+</script>

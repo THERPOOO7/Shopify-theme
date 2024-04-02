@@ -1,0 +1,198 @@
+{% comment %} <div class="recommended_metafield">
+{% for recommended_product in product.metafields.custom.recommended_product.value %}
+  <div class="recommended_metafield_card">
+    <div class="recommended_metafield_image">
+      <!-- <p>Image Path: {{ recommended_product.image.value }}</p> -->
+      <img src="{{ recommended_product.images | asset_url : 'master' }}" />
+    </div>
+    <div class="card__information">
+      <div class="recommended_metafield_title">
+        {{ recommended_product.title }}
+      </div>
+      <div class="recommended_metafield_price">
+        {{ recommended_product.price }}
+      </div>
+    </div>
+  </div>
+{% endfor %} 
+</div>   
+
+<!-- product-list.liquid or a custom section file -->
+{% for product in collection.products %}
+  <div class="product-details">
+    <!-- Product Image -->
+    <img src="{{ product.featured_image.src | img_url }}" alt="{{ product.title }}" />
+
+    <!-- Product Title -->
+    <h2>{{ product.title }}</h2>
+
+    <!-- Product Price -->
+    <p>{{ product.price | money }}</p>
+
+    <!-- Additional Product Details or Features -->
+
+    <!-- Product Description -->
+    {{ product.description }}
+
+    <!-- Add to Cart Button (if needed) -->
+    <form action="/cart/add" method="post">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <input type="submit" value="Add to Cart">
+    </form>
+  </div>
+{% endfor %} {% endcomment %}
+
+
+<div class="re-co-heading">
+  <h1>You may be also like this</h1>
+</div>  
+<form id="recommended-products-form" action="/cart/add" method="post">
+  <div class="re-co">
+    <div class='re-co-2'>
+      {% assign recommendedProductIds = product.metafields.custom.recommended_product.value %}
+      {% for productId in recommendedProductIds %}
+        <div class="recommended-product">
+          <div class="re-co-img">
+            <img src="{{ productId | image_url }}" alt="{{ productId.title }}" />
+            <input type="checkbox" name="selectedProducts[]" value="{{ productId.variants.first.id }}">
+          </div>
+          <div class="re-co-details">
+            <h2>{{ productId.title }}</h2>
+
+            <!-- Variant Selection Dropdown -->
+            <select name="variant{{ productId.variants.first.id }}" onchange="updatePrice(this, '{{ productId.variants.first.id }}')">
+              {% for variant in productId.variants %}
+                <option value="{{ variant.id }}" data-price="{{ variant.price }}">{{ variant.title }}</option>
+              {% endfor %}
+            </select>
+
+            <!-- Display Variant Price -->
+            <p id="variantPrice{{ productId.variants.first.id }}">{{ productId.variants.first.price | money }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <button type="button" onclick="addToCart()">Add Selected to Cart</button>
+  </div>
+</form>
+
+<script>
+  function updatePrice(selectElement, variantId) {
+    // Update displayed price based on the selected variant
+    var selectedVariant = selectElement.options[selectElement.selectedIndex];
+    var priceElement = document.getElementById('variantPrice' + variantId);
+    priceElement.textContent = selectedVariant.getAttribute('data-price');
+  }
+
+  function addToCart() {
+    var form = document.getElementById('recommended-products-form');
+    var selectedProducts = form.querySelectorAll('input[type="checkbox"]:checked');
+    
+    if (selectedProducts.length > 0) {
+      for (var i = 0; i < selectedProducts.length; i++) {
+        var productId = selectedProducts[i].value;
+        var variantSelect = form.querySelector('[name="variant' + productId + '"]');
+        var selectedVariant = variantSelect.options[variantSelect.selectedIndex];
+        
+        // Create hidden input for the selected variant ID
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'id[]';
+        input.value = selectedVariant.value;
+        form.appendChild(input);
+
+        // Create hidden input for the selected variant price
+        var priceInput = document.createElement('input');
+        priceInput.type = 'hidden';
+        priceInput.name = 'properties[_price][' + productId + ']';
+        priceInput.value = selectedVariant.getAttribute('data-price');
+        form.appendChild(priceInput);
+      }
+      form.submit();
+    } else {
+      alert('Please select at least one product.');
+    }
+  }
+</script>
+
+
+
+
+
+
+<style>
+  .re-co-heading{
+    text-align: center;
+  }
+  .re-co{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0;
+    max-width: 1200px;
+    margin: 50px auto;
+  }
+  .re-co-2{
+    display: flex;
+    gap: 10px;
+  }
+  .recommended-product{
+    width: 100%;
+  }
+  .re-co-img img{
+    max-width: 200px;
+  }
+  .re-co-img:hover{
+    background: aquamarine;
+  }
+  .re-co button{
+    max-height: 40px;
+    /* background: aquamarine; */
+    cursor: pointer;
+  }
+  .re-co button:hover {
+    background: aquamarine;
+  }
+  .re-co-details select{
+    background: #f5f5f5;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+  }
+</style>
+
+
+ {% schema %}
+{
+  "name": "Recommonded Product Cart",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Example Text Setting",
+      "id": "example_text_setting",
+      "default": "Hello, this is a default text."
+    },
+    {
+      "type": "color",
+      "label": "Example Color Setting",
+      "id": "example_color_setting",
+      "default": "#3498db"
+    },
+    {
+      "type": "image_picker",
+      "label": "Example Image Setting",
+      "id": "example_image_setting"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recommonded Product Cart",
+      "category": "Custom"
+    }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

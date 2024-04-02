@@ -1,0 +1,130 @@
+{{ 'custom.css' | asset_url | stylesheet_tag }}
+
+<section class="knowledge-base-banner-section">
+  <div class="main-banner">
+    <div class="banner-img banner-img-mobile">
+      <img src="{{ section.settings.banner_image_mobile| img_url: 'large' }}" alt="{{ section.settings.banner_text }}"/>
+    </div>
+    <div class="banner-img banner-img-desktop">
+      <img src="{{ section.settings.banner_image_desktop| img_url: 'large' }}" alt="{{ section.settings.banner_text }}"/>
+    </div>
+    <div class="banner-text">
+      {% render "breadcrumbs" %}
+      <h1 class="heading-text">{{ section.settings.banner_text }}</h1>
+       <style>
+          .heading-text{
+            color: {{section.settings.heading_color}};
+          }
+      </style>
+    </div>
+  </div>
+</section>
+
+{% if page.url == '/pages/hema-about-us-r' or '/page/history-of-hema' or '/page/knowledge-base-r' %}
+  <style>
+  .breadcrumbs__list a, 
+  .breadcrumbs__item{
+  color:{{ section.settings.heading_color }};
+  </style>
+{% endif %}
+
+{% if page.url == '/pages/hema-about-us-r' %}
+  <style> 
+  @media (max-width: 570px){
+  .banner-text {
+    position: absolute;
+    top: 2rem;
+    left: 10rem;
+  }
+}
+  </style>
+{% endif %}
+
+
+
+{% schema %}
+  {
+    "name": "knowledge base banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "banner image desktop",
+        "id": "banner_image_desktop",
+        "info": "Leave this blank to use background color instead."
+      },
+      {
+        "type": "image_picker",
+        "label": "banner image mobile",
+        "id": "banner_image_mobile",
+        "info": "Leave this blank to use background color instead."
+      },
+      {
+      "type": "text",
+      "label": "banner text",
+      "id": "banner_text",
+      "default": "banner text"
+    },
+       {
+        "type": "color",
+        "id": "heading_color",
+        "default": "#D6652D",
+        "label": "Heading Color"
+      }
+  ],
+     "presets": [
+    {
+      "name": "knowledge base banner",
+      "category": "Custom"      
+    }
+  ]
+}
+  
+{% endschema %}
+
+<style>
+  .knowledge-base-banner-section .breadcrumbs {
+    margin: 0;
+  }
+  .knowledge-base-banner-section .banner-text h1{
+    font-weight: 600;
+    margin-top: 0;
+  }
+  .main-banner{
+    position: relative;
+  }
+  .banner-img img{
+    width: 100%;
+  }
+  .banner-text {
+    position: absolute;
+    top: 2rem;
+    left: 10rem;
+  }
+  .banner-img-mobile {
+  display: none;
+}
+
+  @media (max-width: 570px){
+    .banner-text {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+    .knowledge-base-banner-section .banner-text h1{
+     margin-bottom: 0;
+   }
+
+    .banner-img-desktop {
+     display: none;
+   }
+    .banner-img-mobile {
+     display: block;
+   }
+}
+
+
+
+
+</style>
+{% javascript %}
+{% endjavascript %}
